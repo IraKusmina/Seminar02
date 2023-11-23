@@ -1,1 +1,78 @@
+Задача 1
+Console.Clear ();
+Console.Write ("Введите число: ");
+int number = int.Parse (Console.ReadLine ()!);
+
+if (number % 7 == 0 && number % 23 == 0)
+   Console.WriteLine ("Да");
+else {
+   Console.WriteLine ("Нет");
+}
+
+Задача 2
+Console.Clear ();
+Console.Write ("Введите X: ");
+int X = int.Parse (Console.ReadLine ()!);
+ while (X == 0){
+   Console.Write("Вы ошиблись!\nВведите верное число: ");
+   X = int.Parse(Console.ReadLine()!);
+ }
+Console.Write ("Введите Y: ");
+int Y = int.Parse (Console.ReadLine ()!);
+ while (Y == 0){
+   Console.Write("Вы ошиблись!\nВведите верное число: ");
+   Y = int.Parse(Console.ReadLine()!);
+ }
+if (X > 0 && Y > 0)
+   Console.WriteLine ("1");
+else {
+   if (X > 0)
+      {Console.WriteLine ("4");
+      if (Y > 0)
+         Console.WriteLine ("2");}
+   else {
+         Console.WriteLine ("3");
+   }
+}  
+
+Задача 3
+Console.Clear ();
+Console.Write ("Введите число от 10 до 99: ");
+int number = int.Parse (Console.ReadLine ()!);
+while (number <10 || number > 99){
+   Console.Write("Вы ошиблись!\nВведите другое число: ");
+   number = int.Parse(Console.ReadLine()!);
+}
+
+int n1 = number / 10;
+int n2 = number % 10;
+
+if (n1 > n2)
+   Console.WriteLine ($"{n1}");
+else {
+   if (n2 > n1)
+      Console.WriteLine ($"{n2}");
+   else {
+   Console.WriteLine ("Цифры равны");
+   }
+}
+
+Задача 4
+Console.Clear ();
+Console.Write ("Введите число: ");
+int N = int.Parse (Console.ReadLine ()!);
+string num = N.ToString();
+int Length = num.Length;
+int div = 1;
+
+for (int i = 1; i < Length; i++ ){
+   div = div * 10;
+}
+
+while (div > 1) {
+   Console.Write ($"{N/div}, ");
+   N = N % div;
+   div = div / 10;
+}
+Console.Write ($"{N/div}");
 
