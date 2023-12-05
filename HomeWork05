@@ -1,1 +1,123 @@
-# Seminar02
+// Задание 1
+void inputMatrix(int [,] matrix)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+             matrix [i, j] = new Random().Next(1, 11);   
+        }
+    }
+}
+
+void printMatrix(int [,] matr){
+     for (int i = 0; i < matr.GetLength(0); i++){
+        for (int j = 0; j < matr.GetLength(1); j++){
+            Console.Write ($"{matr [i, j]} \t ");
+        }
+        Console.WriteLine();
+    }
+}
+
+Console.Clear();
+int[,] matrix = new int[5, 5];
+inputMatrix(matrix);
+Console.WriteLine ("Начальный массив: ");
+printMatrix(matrix);
+
+Console.WriteLine ("Введите параметры элемента: ");
+int [] size = Console.ReadLine ()!.Split().Select(x => int.Parse (x)).ToArray();
+if (size[0] >= matrix.GetLength(0) || size[1] >= matrix.GetLength (1)){
+    Console.WriteLine ("Такого элемента не существует");
+}
+else Console.WriteLine ($"Элемент массива {matrix [size[0], size [1]]}");
+
+// Задание 2
+
+void inputMatrix (int [,] matrix){
+    for (int i = 0; i < matrix.GetLength(0); i++){
+        for (int j = 0; j < matrix.GetLength(1); j++){
+            matrix [i, j] = new Random().Next(-10, 11);
+        }
+    }
+}
+
+void printMatrix (int [,] matr){
+    for (int i = 0; i < matr.GetLength(0); i++){
+        for (int j = 0; j < matr.GetLength(1); j++){
+            Console.Write ($"{matr [i,j]}\t");
+        }
+        Console.WriteLine();
+    }
+}
+
+void changeMatrix (int [,] massiv){
+    int last = massiv.GetLength(1) - 1;
+    for (int j = 0; j < massiv.GetLength(1); j++){
+        int temp = massiv [0, j];
+        massiv [0, j] = massiv [last, j];
+        massiv [last, j] = temp;
+    }
+}
+
+Console.Clear();
+Console.WriteLine ("Введите размеры двухмерного массива: ");
+int [] size = Console.ReadLine()!.Split().Select(x => int.Parse (x)).ToArray();
+int [,] matrix =  new int [size[0], size [1]];
+inputMatrix(matrix);
+Console.WriteLine ("Начальный массив: ");
+printMatrix (matrix);
+changeMatrix (matrix);
+Console.WriteLine ("Конечный массив: ");
+printMatrix (matrix);
+
+// Задание 3
+
+void inputMatrix (int [,] matrix){
+    for (int i = 0; i < matrix.GetLength(0); i++){
+        for (int j = 0; j < matrix.GetLength(1); j++){
+            matrix [i,j] = new Random().Next(1, 11);
+        }
+    }
+}
+
+void printArray (int [,] matr){
+    for (int i = 0; i < matr.GetLength(0); i++){
+        for (int j = 0; j < matr.GetLength(1); j++){
+            Console.Write ($"{matr[i,j]}\t");
+        }
+        Console.WriteLine();
+    }
+}
+
+int findMaxSum (int [,] matrix){
+    int [] arraySum = new int [matrix.GetLength(0)];
+    int max = 0;
+    for (int i = 0; i < matrix.GetLength(0); i++){
+        int summa = 0;
+        for (int j = 0; j < matrix.GetLength(1); j++){
+            summa += matrix [i, j];
+        }
+        arraySum [i] = summa;
+    }
+    for (int i = 0; i < arraySum.Length; i++){
+        if (arraySum[i] > max){
+            max = arraySum [i];
+        }
+    }
+    return max;
+}
+
+Console.Clear ();
+Console.WriteLine ("Введите размер двухмерного массива: ");
+int [] size = Console.ReadLine()!.Split().Select(x => int.Parse(x)).ToArray();
+int [,] matrix = new int [size[0], size[1]];
+inputMatrix(matrix);
+Console.WriteLine ("Начальный массив: ");
+printArray (matrix);
+Console.WriteLine($"Наибольшая сумма строки: {string.Join(", ", findMaxSum(matrix))}");
+
+
+
+
+
